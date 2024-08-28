@@ -1,16 +1,16 @@
-CLASS z2ui5_cl_ext_draft DEFINITION
+CLASS z2ui5_cl_draft DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC.
 
   PUBLIC SECTION.
 
-    METHODS save
+    METHODS personal_save
       IMPORTING
         id   TYPE clike
         name TYPE clike.
 
-    METHODS load
+    METHODS personal_load
       IMPORTING
         name          TYPE clike
       RETURNING
@@ -22,16 +22,17 @@ ENDCLASS.
 
 
 
-CLASS z2ui5_cl_ext_draft IMPLEMENTATION.
+CLASS z2ui5_cl_draft IMPLEMENTATION.
 
-  METHOD load.
+  METHOD personal_load.
     TRY.
         DATA(lv_id) = ``.
 
         z2ui5_cl_util=>db_load_by_handle(
          EXPORTING
-              handle       = 'DRAFT_LOGIC'
-              handle2      = name
+            handle       = 'DRAFT_LOGIC'
+            handle2      = z2ui5_cl_util=>user_get_tech( )
+            handle3      = name
          IMPORTING
              result = lv_id
          ).
@@ -42,20 +43,19 @@ CLASS z2ui5_cl_ext_draft IMPLEMENTATION.
           INTO @DATA(lv_id_next).
 
         DATA(lo_result) = NEW z2ui5_cl_core_draft_srv( )->read_draft( lv_id_next ).
-
         DATA(lo_app) = z2ui5_cl_core_app=>db_load( lv_id_next ).
-
         result = CAST #( lo_app->mo_app ).
 
       CATCH cx_root.
     ENDTRY.
   ENDMETHOD.
 
-  METHOD save.
+  METHOD personal_save.
 
     z2ui5_cl_util=>db_save(
          handle       = 'DRAFT_LOGIC'
-         handle2      = name
+         handle2      = z2ui5_cl_util=>user_get_tech( )
+         handle3      = name
          data         = id
         check_commit = abap_true
     ).
