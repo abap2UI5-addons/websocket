@@ -1,7 +1,7 @@
 ## Draft Handling
 Draft Handling for abap2UI5
 
-### Draft
+### Personal Draft
 Continue with your last changes
 
 
