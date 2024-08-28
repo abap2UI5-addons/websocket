@@ -39,8 +39,8 @@ START-OF-SELECTION.
   TRY.
       gr_consumer =
         cl_amc_channel_manager=>create_message_consumer(
-          i_application_id =  'ZLS_AMC_01'
-          i_channel_id = '/test' ).
+          i_application_id =  'Z2UI5_AMC_DRAFT'
+          i_channel_id = '/main' ).
       CREATE OBJECT gr_receiver.
       " Empfänger subskribieren
       gr_consumer->start_message_delivery(

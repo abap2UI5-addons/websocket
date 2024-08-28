@@ -17,8 +17,8 @@ start-of-selection.
       " Nachrichtenproduzent anlegen
       gr_producer_text ?=
         cl_amc_channel_manager=>create_message_producer(
-          i_application_id =  'ZLS_AMC_01'
-          i_channel_id = '/test'
+          i_application_id =  'Z2UI5_AMC_DRAFT'
+          i_channel_id = '/main'
       ).
       " Textnachricht verschicken
       gr_producer_text->send( i_message = pa_msg ).
