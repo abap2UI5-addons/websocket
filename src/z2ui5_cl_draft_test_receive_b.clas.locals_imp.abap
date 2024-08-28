@@ -1,0 +1,13 @@
+
+
+CLASS lcl_amc_receiver DEFINITION
+FINAL
+  CREATE PUBLIC.
+
+  PUBLIC SECTION.
+
+ENDCLASS.
+
+CLASS lcl_amc_receiver IMPLEMENTATION.
+
+ENDCLASS.
