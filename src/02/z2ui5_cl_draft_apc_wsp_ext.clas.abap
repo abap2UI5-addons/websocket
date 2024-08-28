@@ -16,7 +16,7 @@ ENDCLASS.
 
 
 
-CLASS z2ui5_cl_draft_apc_wsp_ext IMPLEMENTATION.
+CLASS Z2UI5_CL_DRAFT_APC_WSP_EXT IMPLEMENTATION.
 
 
   method if_apc_wsp_extension~on_message.
@@ -48,8 +48,8 @@ CLASS z2ui5_cl_draft_apc_wsp_ext IMPLEMENTATION.
 *        CATCH cx_apc_error.    "
 
         i_context->get_binding_manager( )->bind_amc_message_consumer(
-                  i_application_id =  'ZLS_AMC_01'
-                  i_channel_id     = '/test' ).
+                  i_application_id =  'Z2UI5_AMC_DRAFT'
+                  i_channel_id     = '/main' ).
 
       catch cx_apc_error into data(exc).
         message exc->get_text( ) type 'X'.
