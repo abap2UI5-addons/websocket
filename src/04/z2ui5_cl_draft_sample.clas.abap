@@ -30,7 +30,7 @@ CLASS z2ui5_cl_draft_sample IMPLEMENTATION.
 
     me->client = client.
 
-    IF check_initialized = abap_false.
+    IF check_initialized = abap_False.
       check_initialized = abap_true.
       on_init(  ).
       RETURN.
