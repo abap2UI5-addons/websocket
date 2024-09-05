@@ -7,7 +7,7 @@ Work in progress... 🚧 🏗️ 🦺
 
 ### Installation 
 
-Install with abapGit and extend your HTTP handler with:
+Install with **[abapGit](https://abapgit.org/)** and extend your HTTP handler with:
 ```abap
   METHOD if_http_extension~handle_request.
 
