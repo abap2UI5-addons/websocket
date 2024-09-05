@@ -66,7 +66,7 @@ CLASS z2ui5add_cl_ws_test_send IMPLEMENTATION.
       WHEN 'BUTTON_POST'.
 
         TRY.
-            z2ui5_cl_draft_channel_wrapper=>send_text( message ).
+            z2ui5add_cl_ws_channel_wrapper=>send_text( message ).
             client->message_toast_display( `Message send!` ).
           CATCH cx_root INTO DATA(lx).
             client->message_box_display( lx->get_text( ) ).
