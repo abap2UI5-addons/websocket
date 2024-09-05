@@ -31,7 +31,7 @@ CLASS z2ui5_cl_draft IMPLEMENTATION.
         z2ui5_cl_util=>db_load_by_handle(
          EXPORTING
             handle       = 'DRAFT_LOGIC'
-            handle2      = z2ui5_cl_util=>user_get_tech( )
+            handle2      = z2ui5_cl_util=>context_get_user( )
             handle3      = name
          IMPORTING
              result = lv_id
@@ -54,7 +54,7 @@ CLASS z2ui5_cl_draft IMPLEMENTATION.
 
     z2ui5_cl_util=>db_save(
          handle       = 'DRAFT_LOGIC'
-         handle2      = z2ui5_cl_util=>user_get_tech( )
+         handle2      = z2ui5_cl_util=>context_get_user( )
          handle3      = name
          data         = id
         check_commit = abap_true
