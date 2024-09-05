@@ -1,4 +1,4 @@
-  CLASS z2ui5_cl_draft_test_receive_b DEFINITION PUBLIC.
+  CLASS z2ui5add_cl_ws_test_receive_b DEFINITION PUBLIC.
 
     PUBLIC SECTION.
 
@@ -22,8 +22,7 @@
   ENDCLASS.
 
 
-
-  CLASS z2ui5_cl_draft_test_receive_b IMPLEMENTATION.
+  CLASS z2ui5add_cl_ws_test_receive_b IMPLEMENTATION.
 
     METHOD z2ui5_if_app~main.
 
@@ -68,7 +67,7 @@
       CASE client->get( )-event.
 
         WHEN 'BUTTON_POST'.
-          z2ui5_cl_draft_channel_wrapper=>receive_messages(
+          z2ui5add_cl_ws_channel_wrapper=>receive_messages(
 *              EXPORTING
 *                wait_time_sec = 10
 *                number        = 1

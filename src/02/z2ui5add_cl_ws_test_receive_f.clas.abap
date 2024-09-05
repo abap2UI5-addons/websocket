@@ -1,4 +1,4 @@
-  CLASS z2ui5_cl_draft_test_receive_f DEFINITION PUBLIC.
+  CLASS z2ui5add_cl_ws_test_receive_f DEFINITION PUBLIC.
 
     PUBLIC SECTION.
 
@@ -22,7 +22,7 @@
   ENDCLASS.
 
 
-  CLASS z2ui5_cl_draft_test_receive_f IMPLEMENTATION.
+  CLASS z2ui5add_cl_ws_test_receive_f IMPLEMENTATION.
 
     METHOD z2ui5_if_app~main.
 
@@ -45,7 +45,8 @@
          view->_generic( ns = `html` name = `script`)->_cc_plain_xml( `` && |\n|  &&
                                                                       `    function createWS(){` && |\n|  &&
                                                                       `  var ws = new WebSocket(` && |\n|  &&
-                                                                      `    "ws://" + window.location.host + "/sap/bc/apc/sap/z2ui5_apc_draft"` && |\n|  &&
+                                                                   "   `    "ws://" + window.location.host + "/sap/bc/apc/sap/z2ui5_apc_draft"` && |\n|  &&
+                                                                      `    "ws://" + window.location.host + "` && z2ui5add_cl_ws_channel_wrapper=>cv_ws_path && `"` && |\n|  &&
                                                                       `  );` && |\n|  &&
                                                                       |\n|  &&
                                                                       `  ws.onopen = function() {` && |\n|  &&
@@ -92,7 +93,7 @@
       CASE client->get( )-event.
 
         WHEN 'BUTTON_POST'.
-          z2ui5_cl_draft_channel_wrapper=>receive_messages(
+          z2ui5add_cl_ws_channel_wrapper=>receive_messages(
 *              EXPORTING
 *                wait_time_sec = 10
 *                number        = 1

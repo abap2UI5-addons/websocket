@@ -3,9 +3,9 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>Z2UI5_CL_DRAFT_TEST_SEND</CLSNAME>
+    <CLSNAME>Z2UI5ADD_CL_WS_TEST_RECEIVE_F</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>send event</DESCRIPT>
+    <DESCRIPT>receive event front</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

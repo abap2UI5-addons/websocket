@@ -1,4 +1,4 @@
-CLASS z2ui5_cl_draft_test_send DEFINITION PUBLIC.
+CLASS z2ui5add_cl_ws_test_send DEFINITION PUBLIC.
 
   PUBLIC SECTION.
 
@@ -21,7 +21,7 @@ ENDCLASS.
 
 
 
-CLASS z2ui5_cl_draft_test_send IMPLEMENTATION.
+CLASS z2ui5add_cl_ws_test_send IMPLEMENTATION.
 
   METHOD z2ui5_if_app~main.
 

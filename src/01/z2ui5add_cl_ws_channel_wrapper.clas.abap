@@ -1,4 +1,4 @@
-CLASS z2ui5_cl_draft_channel_wrapper DEFINITION
+CLASS z2ui5add_cl_ws_channel_wrapper DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
@@ -7,16 +7,17 @@ CLASS z2ui5_cl_draft_channel_wrapper DEFINITION
 
     INTERFACES if_amc_message_receiver_text.
 
-      DATA gr_consumer  TYPE REF TO if_amc_message_consumer.
-      DATA gt_messages  TYPE TABLE OF string.
-      DATA gv_message   TYPE string.
-      DATA gv_nr        TYPE i.
-      DATA gr_amc_error TYPE REF TO cx_amc_error.
+    CLASS-DATA cv_ws_path TYPE string VALUE `/sap/bc/apc/sap/z2ui5_apc_draft`.
+    DATA gr_consumer  TYPE REF TO if_amc_message_consumer.
+    DATA gt_messages  TYPE TABLE OF string.
+    DATA gv_message   TYPE string.
+    DATA gv_nr        TYPE i.
+    DATA gr_amc_error TYPE REF TO cx_amc_error.
 
     CLASS-METHODS receive_messages
       IMPORTING
         wait_time_sec TYPE i DEFAULT 10
-        number        type i default 1
+        number        TYPE i DEFAULT 1
       RETURNING
         VALUE(result) TYPE string_table.
 
@@ -30,7 +31,7 @@ ENDCLASS.
 
 
 
-CLASS z2ui5_cl_draft_channel_wrapper IMPLEMENTATION.
+CLASS z2ui5add_cl_ws_channel_wrapper IMPLEMENTATION.
 
   METHOD receive_messages.
 
@@ -41,7 +42,7 @@ CLASS z2ui5_cl_draft_channel_wrapper IMPLEMENTATION.
     DATA gr_amc_error TYPE REF TO cx_amc_error.
 
 
-    DATA(gr_receiver) = NEW z2ui5_cl_draft_channel_wrapper( ).
+    DATA(gr_receiver) = NEW z2ui5add_cl_ws_channel_wrapper( ).
 
     TRY.
         gr_consumer =
