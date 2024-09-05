@@ -62,19 +62,16 @@ CLASS z2ui5add_cl_ws_channel_wrapper IMPLEMENTATION.
         MESSAGE gr_amc_error->get_text( ) TYPE 'E'.
     ENDTRY.
 
-*
     WAIT FOR MESSAGING CHANNELS UNTIL gr_receiver->gv_nr >= number
       UP TO wait_time_sec SECONDS.
     IF sy-subrc = 8.
       IF  gv_nr = 0.
-*        WRITE: 'Time-Out aufgetreten,',
-*               'keine Nachrichten empfangen.'.
+
       ELSEIF gv_nr < number.
-*        WRITE: 'Time-Out aufgetreten,',
-*               'nicht alle Nachrichten empfangen.'.
+
       ENDIF.
     ELSE.
-*      WRITE: 'Alle Nachrichten empfangen.'.
+
     ENDIF.
 
     result = gr_receiver->gt_messages.
