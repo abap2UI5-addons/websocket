@@ -45,7 +45,6 @@
          view->_generic( ns = `html` name = `script`)->_cc_plain_xml( `` && |\n|  &&
                                                                       `    function createWS(){` && |\n|  &&
                                                                       `  var ws = new WebSocket(` && |\n|  &&
-                                                                   "   `    "ws://" + window.location.host + "/sap/bc/apc/sap/z2ui5_apc_draft"` && |\n|  &&
                                                                       `    "ws://" + window.location.host + "` && z2ui5add_cl_ws_channel_wrapper=>cv_ws_path && `"` && |\n|  &&
                                                                       `  );` && |\n|  &&
                                                                       |\n|  &&
