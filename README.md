@@ -7,7 +7,7 @@ WIP
 
 ### Installation 
 
-Extend you HTTP handler with:
+Extend your HTTP handler with:
 ```abap
   METHOD if_http_extension~handle_request.
 
