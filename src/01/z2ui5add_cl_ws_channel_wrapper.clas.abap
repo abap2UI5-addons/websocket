@@ -46,7 +46,6 @@ CLASS z2ui5add_cl_ws_channel_wrapper IMPLEMENTATION.
     DATA gv_nr        TYPE i.
     DATA gr_amc_error TYPE REF TO cx_amc_error.
 
-
     DATA(gr_receiver) = NEW z2ui5add_cl_ws_channel_wrapper( ).
 
     TRY.
