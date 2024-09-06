@@ -68,6 +68,9 @@ CLASS z2ui5add_cl_cc_websocket IMPLEMENTATION.
                 `  };` && |\n|  &&
                      |\n|  &&
                  `  oControl.ws.onmessage = function (msg) {` && |\n|  &&
+        `    if ( sap.z2ui5?.isWSactive == true ){ return; }; ` && |\n|  &&
+      `     sap.z2ui5.isWSactive = true;  ` && |\n|  &&
+      `     setTimeout( () => { sap.z2ui5.isWSactive = false; } , 2000 );  ` && |\n|  &&
                       `    oControl.setValue(msg.data);` && |\n|  &&
                       `    oControl.fireReceived();` && |\n|  &&
                   `  };` && |\n|  &&
