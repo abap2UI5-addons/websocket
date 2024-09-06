@@ -54,8 +54,9 @@ CLASS z2ui5add_cl_cc_websocket IMPLEMENTATION.
       `       onAfterRendering() {` && |\n| &&
       `       },` && |\n| &&
       `       startWebsocket( oControl){` && |\n| &&
-      `           ` && |\n| &&
       `          if ( oControl.getProperty("checkActive") == false ){ return; }` && |\n| &&
+*      `        if ( sap.z2ui5?.checkWS == true ){ return; }` && |\n| &&
+      `       sap.z2ui5.checkWS = true;` && |\n| &&
       `          if ( oControl?.isActive == true ){ return; }` && |\n| &&
                      `   oControl.isActive = true;` && |\n|  &&
                      `  oControl.ws = new WebSocket(` && |\n|  &&
@@ -63,7 +64,7 @@ CLASS z2ui5add_cl_cc_websocket IMPLEMENTATION.
                          `  );` && |\n|  &&
                    |\n|  &&
                   `  oControl.ws.onopen = function() {` && |\n|  &&
-                       `    alert("WebSocket opened");` && |\n|  &&
+*                       `    alert("WebSocket opened");` && |\n|  &&
                 `  };` && |\n|  &&
                      |\n|  &&
                  `  oControl.ws.onmessage = function (msg) {` && |\n|  &&
