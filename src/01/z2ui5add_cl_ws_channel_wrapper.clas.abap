@@ -110,23 +110,23 @@ CLASS z2ui5add_cl_ws_channel_wrapper IMPLEMENTATION.
 
   METHOD if_apc_wsp_extension~on_start.
 
-    DATA: lt_form_fields TYPE tihttpnvp.
-    DATA: lt_head_fields TYPE tihttpnvp.
-    DATA: lt_cookie      TYPE tihttpcki.
-
+*    DATA: lt_form_fields TYPE tihttpnvp.
+*    DATA: lt_head_fields TYPE tihttpnvp.
+*    DATA: lt_cookie      TYPE tihttpcki.
+*
     TRY.
-
-        DATA(lo_req) = i_context->get_initial_request( ).
-        lo_req->get_form_fields(
-          CHANGING
-            c_fields             = lt_form_fields ).
-        lo_req->get_header_fields(
-          CHANGING
-            c_fields     = lt_head_fields ).
-        lo_req->get_cookies(
-          CHANGING
-            c_cookies    = lt_cookie
-        ).
+*
+*        DATA(lo_req) = i_context->get_initial_request( ).
+*        lo_req->get_form_fields(
+*          CHANGING
+*            c_fields             = lt_form_fields ).
+*        lo_req->get_header_fields(
+*          CHANGING
+*            c_fields     = lt_head_fields ).
+*        lo_req->get_cookies(
+*          CHANGING
+*            c_cookies    = lt_cookie
+*        ).
 *        CATCH cx_apc_error.    "
 
         i_context->get_binding_manager( )->bind_amc_message_consumer(
