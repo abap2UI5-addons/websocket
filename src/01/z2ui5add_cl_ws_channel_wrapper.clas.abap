@@ -18,13 +18,13 @@ CLASS z2ui5add_cl_ws_channel_wrapper DEFINITION PUBLIC
     DATA gv_message   TYPE string.
     DATA gv_nr        TYPE i.
     DATA gr_amc_error TYPE REF TO cx_amc_error.
-
+    types: ty_t_string type standard table of string with empty key.
     CLASS-METHODS receive_messages
       IMPORTING
         wait_time_sec TYPE i DEFAULT 10
         number        TYPE i DEFAULT 1
       RETURNING
-        VALUE(result) TYPE string_table.
+        VALUE(result) TYPE ty_t_string.
 
     CLASS-METHODS send_text
       IMPORTING
