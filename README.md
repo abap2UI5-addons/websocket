@@ -1,9 +1,6 @@
-## Websocket Feature
-
+## websocket
 
 Work in progress... 🚧 🏗️ 🦺
-
-
 
 ### Installation 
 
