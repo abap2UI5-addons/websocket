@@ -4,7 +4,7 @@
         "filename": "./ci/abaplint.jsonc"
       },
       "abap_cloud_readiness": {
-        "filename": "./ci/abaplint-abap_cloud_readiness.jsonc"
+        "filename": "./ci/ABAP_CLOUD.jsonc"
       }
     }
   }
