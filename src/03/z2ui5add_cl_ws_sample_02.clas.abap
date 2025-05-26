@@ -7,8 +7,6 @@
       DATA number   TYPE i VALUE 1.
       DATA wait_time TYPE i VALUE 20.
 
-      DATA check_initialized TYPE abap_bool.
-
     PROTECTED SECTION.
 
       DATA mo_last_draft TYPE REF TO z2ui5_if_app.
@@ -24,12 +22,12 @@
 
   CLASS z2ui5add_cl_ws_sample_02 IMPLEMENTATION.
 
+
     METHOD z2ui5_if_app~main.
 
       me->client = client.
 
-      IF check_initialized = abap_false.
-        check_initialized = abap_true.
+      IF client->check_on_init( ).
         display_view(  ).
         RETURN.
       ENDIF.
@@ -38,14 +36,15 @@
 
     ENDMETHOD.
 
+
     METHOD display_view.
 
       DATA(view) = z2ui5_cl_xml_view=>factory( ).
       client->view_display( view->shell(
            )->page(
                    title          = 'abap2UI5 - Send ABAP Channel Message'
-                   navbuttonpress = client->_event( val = 'BACK' s_ctrl = VALUE #( check_view_destroy = abap_true ) )
-                   shownavbutton = xsdbool( client->get( )-s_draft-id_prev_app_stack IS NOT INITIAL )
+                   navbuttonpress = client->_event( val = 'BACK' )
+                   shownavbutton = client->check_app_prev_stack( )
                )->simple_form( title = 'Form Title' editable = abap_true
                    )->content( 'form'
                        )->title( 'Input'
@@ -55,11 +54,9 @@
                        )->input( client->_bind_edit( wait_time )
                        )->button(
                            text  = 'Check for Messages'
-                           press = client->_event( val = 'BUTTON_POST' )
-            )->stringify( ) ).
+                           press = client->_event( val = 'BUTTON_POST' ) ) ).
 
     ENDMETHOD.
-
 
 
     METHOD on_event.
@@ -88,7 +85,6 @@
       ENDCASE.
 
     ENDMETHOD.
-
 
 
   ENDCLASS.

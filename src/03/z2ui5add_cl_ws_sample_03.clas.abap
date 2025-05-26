@@ -3,9 +3,7 @@ CLASS z2ui5add_cl_ws_sample_03 DEFINITION PUBLIC.
   PUBLIC SECTION.
 
     INTERFACES z2ui5_if_app.
-
     DATA message  TYPE string.
-    DATA check_initialized TYPE abap_bool.
 
   PROTECTED SECTION.
 
@@ -27,8 +25,7 @@ CLASS z2ui5add_cl_ws_sample_03 IMPLEMENTATION.
 
     me->client = client.
 
-    IF check_initialized = abap_false.
-      check_initialized = abap_true.
+    IF client->check_on_init( ).
       display_view(  ).
       RETURN.
     ENDIF.
@@ -43,8 +40,8 @@ CLASS z2ui5add_cl_ws_sample_03 IMPLEMENTATION.
     client->view_display( view->shell(
          )->page(
                  title          = 'abap2UI5 - Send ABAP Channel Message'
-                 navbuttonpress = client->_event( val = 'BACK' s_ctrl = VALUE #( check_view_destroy = abap_true ) )
-                 shownavbutton = xsdbool( client->get( )-s_draft-id_prev_app_stack IS NOT INITIAL )
+                 navbuttonpress = client->_event( val = 'BACK' )
+                 shownavbutton = client->check_app_prev_stack( )
              )->simple_form( title = 'Form Title' editable = abap_true
                  )->content( 'form'
                      )->title( 'Input'
@@ -52,8 +49,7 @@ CLASS z2ui5add_cl_ws_sample_03 IMPLEMENTATION.
                      )->input( client->_bind_edit( message )
                      )->button(
                          text  = 'Send Message'
-                         press = client->_event( val = 'BUTTON_POST' )
-          )->stringify( ) ).
+                         press = client->_event( val = 'BUTTON_POST' ) ) ).
 
   ENDMETHOD.
 
@@ -69,7 +65,7 @@ CLASS z2ui5add_cl_ws_sample_03 IMPLEMENTATION.
             z2ui5add_cl_ws_channel_wrapper=>send_text( message ).
             client->message_toast_display( `Message send!` ).
           CATCH cx_root INTO DATA(lx).
-            client->message_box_display( lx->get_text( ) ).
+            client->message_box_display( lx ).
         ENDTRY.
 
       WHEN 'BACK'.
